@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -26,7 +25,20 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
+//  Create JS Function.
+import {
+  AppRegistry
+} from 'react-native';
+
+const LogLocation = async (data) => {
+  navigator.geolocation.getCurrentPosition((position) => {
+   console.log(position.coords);
+  });
+};
+
+AppRegistry.registerHeadlessTask('LogLocation', () => LogLocation); 
+
+const Section = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
