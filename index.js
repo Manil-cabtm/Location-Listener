@@ -8,5 +8,10 @@ import {name as appName} from './app.json';
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
 
 ReactNativeForegroundService.register();
+ReactNativeForegroundService.start({
+    id: 144,
+    title: 'Foreground Service',
+    message: 'Foreground services start.',
+});
 
 AppRegistry.registerComponent(appName, () => App);
