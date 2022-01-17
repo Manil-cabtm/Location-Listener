@@ -2,6 +2,12 @@ package com.locationlistner;
 
 import com.facebook.react.ReactActivity;
 
+//  Imports for Foreground Activity.
+import android.content.Intent;
+import android.util.Log;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class MainActivity extends ReactActivity {
   // For receiving interaction of the notification on your JS Task.
