@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
+  TouchableOpacity,
 } from 'react-native';
 import { PermissionsAndroid } from 'react-native';
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
@@ -96,15 +97,55 @@ const Root= () => {
     }, []);
 
     return(
-        <View>
-            {
-                isBackgroundLocationGranted ? (
-                    <Text>Location is being tracked.</Text>
-                ):(
-                    <Text>Location Permission not granted.</Text>
-                )
-            }
-            
+        <View style= {{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: 20,
+        }}>
+          {
+            isBackgroundLocationGranted ? (
+                <Text>Location is being tracked.</Text>
+            ):(
+                <Text>Location Permission not granted.</Text>
+            )
+          }
+          <TouchableOpacity
+            activeOpacity={.75}
+            style= {{
+              backgroundColor: '#C29200',
+              borderRadius: 50,
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 14,
+              width: 200,
+              marginTop: 10,
+            }}
+            onPress={() => {
+              console.log(`End LocationListener.`);
+              ReactNativeForegroundService.remove_task('taskid',);
+            }}
+          >
+            <Text style= {{color: '#fff'}}>End LocationListener.</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            activeOpacity={.75}
+            style= {{
+              backgroundColor: '#C90000',
+              borderRadius: 50,
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 14,
+              width: 200,
+              marginTop: 10,
+            }}
+            onPress={() => {
+              console.log(`End Frontground Service.`);
+              ReactNativeForegroundService.stop();
+            }}
+          >
+            <Text style= {{color: '#fff'}}>End Frontground Service.</Text>
+          </TouchableOpacity>
         </View>
     )
 }
