@@ -5,11 +5,21 @@ import {
   Text,
 } from 'react-native';
 
+import LocationListener from './src/LocationListener';
+
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style= {{
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+    }}>
       <View>
-        <Text>Background location get.</Text>
+        <Text style= {{
+          color: '#040726',
+          fontSize: 26,
+        }}>Location Listener</Text>
+        <LocationListener />
       </View>
     </SafeAreaView>
   );
