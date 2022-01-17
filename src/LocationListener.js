@@ -68,6 +68,12 @@ const Root= () => {
     const [isBackgroundLocationGranted, setIsBackgroundLocationGranted]= useState(false);
 
     useEffect(() => {      
+        ReactNativeForegroundService.start({
+          id: 144,
+          title: 'Foreground Service',
+          message: 'Foreground services start.',
+        });
+        
         const requestBackgroundLocationPermission= async() => {
             //  Checking if the background permissions are granted. 
             const permissionGranted = await PermissionsAndroid.request(
@@ -94,6 +100,11 @@ const Root= () => {
             
         };
         requestBackgroundLocationPermission();
+
+        return () => {
+          console.log(`End Frontground Service.`);
+          ReactNativeForegroundService.stop();
+        };
     }, []);
 
     return(
