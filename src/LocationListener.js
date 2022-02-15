@@ -38,22 +38,23 @@ ReactNativeForegroundService.add_task(
         detail: 'fine',
       },
     }).then((granted) => {
-      console.log('Location Permissions: ', granted);
+      // console.log('Location Permissions: ', granted);
       // if has permissions try to obtain location with RN location
-      if (granted) {
+      // if (granted) {
         locationSubscription && locationSubscription();
         locationSubscription = RNLocation.subscribeToLocationUpdates(
           ([locations]) => {
             locationSubscription();
             locationTimeout && clearTimeout(locationTimeout);
-            console.log(`Location: ${JSON.stringify(locations)}`);
+            const date=  new Date();
+            console.log(`${date} |\tLocation: ${JSON.stringify(locations)}`);
           },
         );
-      } else {
-        locationSubscription && locationSubscription();
-        locationTimeout && clearTimeout(locationTimeout);
-        console.log('Location permission not granted.');
-      }
+      // } else {
+      //   locationSubscription && locationSubscription();
+      //   locationTimeout && clearTimeout(locationTimeout);
+      //   console.log('Location permission not granted.');
+      // }
     });
   },
   {
