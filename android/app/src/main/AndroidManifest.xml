@@ -1,13 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.locationlistner">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Permissions to keep the app running in the background service. -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-      <!-- Permissions to access the devices current location. -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
       android:name=".MainApplication"
@@ -28,11 +21,5 @@
         </intent-filter>
       </activity>
 
-      <!-- Define Foreground service and it's metadata.  -->
-      <meta-data android:name="com.supersami.foregroundservice.notification_channel_name" 	android:value="SuperService"/> 
-      <meta-data  android:name="com.supersami.foregroundservice.notification_channel_description" android:value="SuperService is running"/> 
-      <meta-data  android:name="com.supersami.foregroundservice.notification_color"      android:resource="@color/orange"/> 
-      <service android:name="com.supersami.foregroundservice.ForegroundService"></service> 
-      <service android:name="com.supersami.foregroundservice.ForegroundServiceTask"></service>
     </application>
 </manifest>
